@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB = credentials('dockerhub_creds')
-        IMAGE_NAME = "phantomxd960/todo-app"
+        IMAGE_NAME = "vijayvignesh960/todo-app"
     }
 
     stages {
