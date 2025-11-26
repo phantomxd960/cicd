@@ -1,18 +1,16 @@
-
 pipeline {
     agent any
 
     environment {
         DOCKERHUB = credentials('dockerhub_creds')
-        IMAGE_NAME = "phantomxd960/todo"
+        IMAGE_NAME = "phantomxd960/todo-app"
     }
 
     stages {
 
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/phantomxd960/cicd'
+                git branch: 'main', url: 'https://github.com/phantomxd960/cicd'
             }
         }
 
@@ -54,10 +52,10 @@ pipeline {
 
     post {
         success {
-            echo "CI/CD completed — Docker image pushed to DockerHub!"
+            echo "🚀 Todo app image successfully pushed to DockerHub!"
         }
         failure {
-            echo "Build failed — check console logs."
+            echo "❌ CI/CD failed — check pipeline logs."
         }
     }
 }
